@@ -16,7 +16,6 @@ Setup the repo
 
 ```
 cd /path/to/repo
-mkdir logs
 npm install
 ```
 
