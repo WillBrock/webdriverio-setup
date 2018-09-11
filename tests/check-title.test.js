@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-describe(`Test homepage`, () => {
+describe(`Test homepage`, function() {
     it(`should get the correct page title`, () => {
         browser.url('http://beta.webdriver.io');
         const title = browser.getTitle();
