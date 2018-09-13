@@ -12,7 +12,7 @@ Start chromedriver
 chromedriver --port=4444 --url-base=/wd/hub --verbose
 ```
 
-Let the terminal be open and start an other one.
+Let the terminal be open and start other one.
 
 Setup the repo
 
@@ -30,10 +30,10 @@ Run all tests using the below command
 To run each test individually, pass spec file path as parameter
 
 ```
-./node_modules/.bin/wdio wdio.conf.js --spec=tests/check-title.test
-./node_modules/.bin/wdio wdio.conf.js --spec=tests/form-authentication.test
-./node_modules/.bin/wdio wdio.conf.js --spec=tests/mocha-chai.test
-./node_modules/.bin/wdio wdio.conf.js --spec=tests/selectors.test
-./node_modules/.bin/wdio wdio.conf.js --spec=tests/waitfor-commands.test
+./node_modules/.bin/wdio wdio.conf.js --spec tests/check-title.test
+./node_modules/.bin/wdio wdio.conf.js --spec tests/form-authentication.test
+./node_modules/.bin/wdio wdio.conf.js --spec tests/mocha-chai.test
+./node_modules/.bin/wdio wdio.conf.js --spec tests/selectors.test
+./node_modules/.bin/wdio wdio.conf.js --spec tests/waitfor-commands.test
 ```
 Happy Testing with v5!
