@@ -12,7 +12,7 @@ Start chromedriver
 chromedriver --port=4444 --url-base=/wd/hub --verbose
 ```
 
-Let the terminal be open and start other one.
+Let the terminal be open and start another one.
 
 Setup the repo
 
