@@ -1,4 +1,5 @@
 exports.config = {
+    willyb: `hello`,
     //
     // ====================
     // Runner Configuration
@@ -7,7 +8,6 @@ exports.config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: 'local',
-    
     //
     // ==================
     // Specify Test Files
@@ -24,6 +24,14 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+
+    suites : {
+        Browser : [`./tests/browser*.test.js`],
+        Login   : [
+            `./tests/form-authentication.test.js`, 
+            `./tests/reset-password.test.js`
+        ],
+    },
     //
     // ============
     // Capabilities
@@ -50,7 +58,7 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        maxInstances: 1,
         //
         browserName: 'chrome'
     }],
@@ -84,6 +92,8 @@ exports.config = {
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
+
+    waitforInterval: 1000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -114,7 +124,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],//
+    services: [],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -134,7 +144,7 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
-        retries: 2,
+        retries: 0,
     },
     //
     // =====
@@ -168,6 +178,14 @@ exports.config = {
      */
     before: function (capabilities, specs) {
         require('babel-register');
+
+        browser.addCommand(`request`, () => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(`from add command request`);
+                }, 4000);
+            });
+        });
     },
     /**
      * Runs before a WebdriverIO command gets executed.
