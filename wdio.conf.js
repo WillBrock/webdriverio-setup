@@ -179,13 +179,28 @@ exports.config = {
     before: function (capabilities, specs) {
         require('babel-register');
 
-        browser.addCommand(`request`, () => {
+        browser.addCommand('foobar', async function(foo) {
+            return {
+                title : await this.getTitle(),
+                somethingCustom : foo
+            };
+        });
+
+        browser.addCommand('makeRequest', function(data) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    resolve(`from add command request`);
-                }, 4000);
+                    resolve(`From our api call: ${data}`);
+                }, 3000);
             });
         });
+
+        /*
+        browser.addCommand('makeRequest', async function(route) {
+            const data = await request.get(route);
+
+            return data.body;
+        });
+        */
     },
     /**
      * Runs before a WebdriverIO command gets executed.
