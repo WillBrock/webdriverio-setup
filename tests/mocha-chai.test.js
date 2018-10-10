@@ -25,6 +25,8 @@ describe(`Test homepage`, function() {
         const title = browser.getTitle();
 
         expect(title).to.equal('WebdriverIO · Next-gen WebDriver test framework for Node.js');
+
+        // This will fail
         expect($(`.projectTitle`).isDisplayed(), `project title is not displayed`).to.equal(false);
     });
 
