@@ -28,7 +28,7 @@ exports.config = {
     suites : {
         Browser : [`./tests/browser*.test.js`],
         Login   : [
-            `./tests/form-authentication.test.js`, 
+            `./tests/form-authentication.test.js`,
             `./tests/reset-password.test.js`
         ],
     },
@@ -137,7 +137,7 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
     reporters: ['spec'],
-    
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -177,7 +177,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
-        require('babel-register');
+        require('@babel/register');
 
         browser.addCommand('foobar', async function(foo) {
             return {
@@ -209,7 +209,7 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-    
+
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
@@ -246,7 +246,7 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
